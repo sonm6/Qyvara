@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel Estudiante - QYVARA</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    input:focus, select:focus, textarea:focus {
+      color: #000000 !important;
+      background-color: #ffffff !important;
+    }
+    ::selection {
+      color: #000000 !important;
+      background-color: #ffd700 !important;
+    }
+    ::-moz-selection {
+      color: #000000 !important;
+      background-color: #ffd700 !important;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="topbar">
+    <div>
+      <img src="assets/logo.png" class="logo-mini" alt="Logo QYVARA">
+      <strong style="color: #003366 !important; text-shadow: none;">QYVARA</strong>
+    </div>
+    <div class="header-right">
+      <div class="language-switch">
+        <select id="idiomaSelector" onchange="cambiarIdiomaManual()">
+          <option value="es">ES</option>
+          <option value="qu">QU</option>
+        </select>
+      </div>
+      <button id="btnHistorial" class="btn-small" onclick="mostrarHistorialFlotante()">📋 Historial</button>
+      <button id="btnLogout" class="btn-small" onclick="logout()">Cerrar sesión</button>
+    </div>
+  </header>
+
+  <main class="dashboard">
+    <h2 id="welcome">Bienvenido</h2>
+
+    <p id="descPanel" class="muted">
+      Elige el tipo de orientación vocacional que deseas realizar.
+    </p>
+
+    <!-- SECCIÓN DE PROMOCIONES -->
+    <section class="promotions-section">
+      <div class="promotion-card promo-1 floating">
+        <div class="promo-img" style="display:flex;align-items:center;justify-content:center;font-size:60px;background:linear-gradient(135deg, #1a5f4a, #0d3326);">🏔️</div>
+        <p class="promo-text">Allin hamut'ayña - Buen futuro profesional</p>
+        <p class="promo-subtext">Orientación vocacional bilingüe</p>
+      </div>
+      <div class="promotion-card promo-2 floating">
+        <div class="promo-img" style="display:flex;align-items:center;justify-content:center;font-size:60px;background:linear-gradient(135deg, #2a5a8a, #1a3a5a);">🌊</div>
+        <p class="promo-text">Imaynallaq kayta munanki - ¿Qué quieres ser?</p>
+        <p class="promo-subtext">Descubre tu vocación</p>
+      </div>
+      <div class="promotion-card promo-3 floating">
+        <div class="promo-img" style="display:flex;align-items:center;justify-content:center;font-size:60px;background:linear-gradient(135deg, #8a4a2a, #5a2a1a);">💬</div>
+        <p class="promo-text">Rimaykuna - Conversemos</p>
+        <p class="promo-subtext">Test gratuito disponible</p>
+      </div>
+      <div class="promotion-card promo-4 floating">
+        <div class="promo-img" style="display:flex;align-items:center;justify-content:center;font-size:60px;background:linear-gradient(135deg, #4a2a8a, #2a1a5a);">🎓</div>
+        <p class="promo-text">Qollana yachay - Conocimiento superior</p>
+        <p class="promo-subtext">Test premium S/ 35.00</p>
+      </div>
+    </section>
+
+    <section class="plans">
+      <article class="plan-card floating premium">
+        <div class="card-content">
+          <h3 id="tituloGratis">Test Gratuito - Orientación Vocacional</h3>
+          <p id="descGratis">
+            Descubre tus intereses y habilidades con 20 preguntas sobre orientación vocacional bilingüe.
+          </p>
+          <p class="highlight">✓ 20 preguntas detalladas</p>
+          <p class="highlight">✓ Resultado vocacional personalizado</p>
+          <p class="highlight">✓ Imagen representativa de tu perfil</p>
+          <button id="btnGratis" onclick="startTest('gratis')" class="btn-primary">
+            Realizar test gratuito
+          </button>
+        </div>
+        <div class="card-img floating-img" style="display:flex;align-items:center;justify-content:center;font-size:80px;background:linear-gradient(135deg, #1a5f4a, #0d3326);min-height:200px;">🎯</div>
+      </article>
+
+      <article class="plan-card premium floating">
+        <div class="card-content">
+          <h3 id="tituloPremium">Test Premium S/ 35.00</h3>
+          <p id="descPremium">
+            Evaluación profesional completa con 30 preguntas avanzadas y resultado de futura profesión.
+          </p>
+          <p class="highlight">✓ 30 preguntas especializadas</p>
+          <p class="highlight">✓ Informe profesional detallado</p>
+          <p class="highlight">✓ Imagen flotante de tu carrera</p>
+          <button id="btnPremium" onclick="mostrarPago('premium_default')" class="btn-premium">
+            Realizar test premium
+          </button>
+        </div>
+        <div class="card-img floating-img" style="display:flex;align-items:center;justify-content:center;font-size:80px;background:linear-gradient(135deg, #f5b942, #d4a017);min-height:200px;">💎</div>
+      </article>
+    </section>
+
+    <section id="adminTestsSection" class="additional-tests hidden">
+      <h3 id="adminTestsTitle">Tests creados por el administrador</h3>
+      <div id="testsDisponibles" class="tests-grid"></div>
+    </section>
+
+    <section id="pagoBox" class="payment-box hidden">
+      <h3 id="tituloPago">Métodos de pago disponibles</h3>
+      <p id="descPago">Elige tu método de pago preferido:</p>
+
+      <div id="metodosContainer" class="metodos-container">
+        <!-- Los métodos se cargarán aquí vía JavaScript -->
+      </div>
+
+      <div id="formaPago" class="forma-pago hidden">
+        <!-- Los campos del pago se mostrarán aquí -->
+      </div>
+
+      <button id="btnConfirmarPago" class="hidden" onclick="confirmarPago()">
+        Confirmar y continuar con test
+      </button>
+    </section>
+
+    <section id="testBox" class="test-box hidden">
+      <h3 id="testTitle"></h3>
+      <p class="muted-dark">
+        Selecciona una alternativa por cada pregunta. Al finalizar, el sistema calculará tus áreas con mayor afinidad.
+      </p>
+
+      <div id="questions"></div>
+
+      <button id="btnResultado" onclick="calcularResultado()">
+        Ver resultado
+      </button>
+    </section>
+
+    <section id="resultado" class="result-box hidden">
+      <div class="result-container">
+        <div class="result-content">
+          <h3 id="resultTitle"></h3>
+          <div id="resultDetails"></div>
+          <button id="btnNuevoTest" onclick="volverPanelTest()">Realizar otro test</button>
+        </div>
+        <img id="resultImg" src="" alt="Profesión" class="result-img floating-img">
+      </div>
+    </section>
+
+    
+
+  </main>
+
+  <link rel="stylesheet" href="css/improvements.css">
+  <link rel="stylesheet" href="css/modern.css">
+  <script src="js/database.js"></script>
+  <script src="js/api-client.js"></script>
+  <script src="js/app_new.js"></script>
+  <script src="js/extensions.js"></script>
+</body>
+</html>

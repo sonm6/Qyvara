@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - QYVARA</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <body>
+
+  <!-- SELECTOR DE IDIOMA -->
+  <div class="language-switch" style="position: fixed; top: 15px; right: 15px; z-index: 9999;">
+    <select id="idiomaSelector" onchange="cambiarIdiomaManual()"
+      style="
+        width: 80px;
+        height: 34px;
+        padding: 5px 8px;
+        margin: 0;
+        border-radius: 10px;
+        border: 1px solid #00d4ff;
+        background: #041923;
+        color: #00d4ff;
+        font-weight: bold;
+        font-size: 13px;
+        box-shadow: 0 0 10px rgba(0,212,255,0.35);
+      ">
+      <option value="es">ES</option>
+      <option value="qu">QU</option>
+    </select>
+  </div>
+  <!-- 🔼 FIN -->
+
+  <!-- TODO TU CONTENIDO -->
+  <main class="login-page">
+
+    <section class="login-info">
+      <img src="assets/logo.png" class="logo-img" alt="Logo QYVARA">
+
+      <h1>QYVARA</h1>
+
+      <p id="sloganLogin">
+        Orientación vocacional bilingüe con dirección exacta.
+      </p>
+    </section>
+
+    <section class="login-card">
+
+      <h2 id="tituloLogin">Iniciar sesión</h2>
+
+      <input id="inputUser" type="text" placeholder="DNI o usuario admin">
+      <input id="inputPass" type="password" placeholder="Contraseña">
+
+      <button id="btnLogin" onclick="login()">Ingresar</button>
+
+      <p id="linkRegistro" class="link" onclick="goRegister()">
+        Crear cuenta nueva
+      </p>
+
+
+    </section>
+
+  </main>
+
+  <link rel="stylesheet" href="css/improvements.css">
+  <link rel="stylesheet" href="css/modern.css">
+  <script src="js/database.js"></script>
+  <script src="js/api-client.js"></script>
+  <script src="js/app_new.js"></script>
+  <script src="js/extensions.js"></script>
+</body>
+</html>

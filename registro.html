@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro - QYVARA</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <body>
+
+  <!-- SELECTOR DE IDIOMA -->
+  <div class="language-switch" style="position: fixed; top: 15px; right: 15px; z-index: 9999;">
+    <select id="idiomaSelector" onchange="cambiarIdiomaManual()"
+      style="
+        width: 80px;
+        height: 34px;
+        padding: 5px 8px;
+        margin: 0;
+        border-radius: 10px;
+        border: 1px solid #00d4ff;
+        background: #041923;
+        color: #00d4ff;
+        font-weight: bold;
+        font-size: 13px;
+        box-shadow: 0 0 10px rgba(0,212,255,0.35);
+      ">
+      <option value="es">ES</option>
+      <option value="qu">QU</option>
+    </select>
+  </div>
+  <!-- 🔼 FIN -->
+
+  <!-- TODO TU CONTENIDO -->
+
+  <main class="form-container">
+    <section class="form-card">
+      <img src="assets/logo.png" class="logo-small" alt="Logo QYVARA">
+
+      <h2 id="registroTitulo">Crear cuenta</h2>
+
+     <input type="text" id="dni" placeholder="DNI">
+<input type="text" id="nombre" placeholder="Nombre completo">
+<input type="text" id="telefono" placeholder="Teléfono">
+<input type="email" id="correo" placeholder="Correo personal">
+
+<select id="ciudad">
+  <option value="" id="optDepartamento">Departamento</option>
+  <option value="Amazonas">Amazonas</option>
+  <option value="Áncash">Áncash</option>
+  <option value="Apurímac">Apurímac</option>
+  <option value="Arequipa">Arequipa</option>
+  <option value="Ayacucho">Ayacucho</option>
+  <option value="Cajamarca">Cajamarca</option>
+  <option value="Callao">Callao</option>
+  <option value="Cusco">Cusco</option>
+  <option value="Huancavelica">Huancavelica</option>
+  <option value="Huánuco">Huánuco</option>
+  <option value="Ica">Ica</option>
+  <option value="Junín">Junín</option>
+  <option value="La Libertad">La Libertad</option>
+  <option value="Lambayeque">Lambayeque</option>
+  <option value="Lima">Lima</option>
+  <option value="Loreto">Loreto</option>
+  <option value="Madre de Dios">Madre de Dios</option>
+  <option value="Moquegua">Moquegua</option>
+  <option value="Pasco">Pasco</option>
+  <option value="Piura">Piura</option>
+  <option value="Puno">Puno</option>
+  <option value="San Martín">San Martín</option>
+  <option value="Tacna">Tacna</option>
+  <option value="Tumbes">Tumbes</option>
+  <option value="Ucayali">Ucayali</option>
+</select>
+
+<select id="idioma">
+  <option value="" id="optIdioma">Idioma preferido</option>
+  <option value="Español">Español</option>
+  <option value="Quechua">Quechua</option>
+</select>
+
+<input type="password" id="password" placeholder="Contraseña">
+<input type="password" id="confirmPassword" placeholder="Repetir contraseña">
+
+      <button id="btnRegistrarse" onclick="register()">Registrarse</button>
+
+      <p id="linkLogin" class="link" onclick="goLogin()">Ya tengo cuenta</p>
+    </section>
+  </main>
+
+  <link rel="stylesheet" href="css/improvements.css">
+  <script src="js/database.js"></script>
+  <script src="js/app_new.js"></script>
+</body>
+</html>

@@ -1,0 +1,451 @@
+/* ===== CORRECCIONES DE CONTRASTE Y MEJORAS ===== */
+
+/* Asegurar que el texto sea NEGRO en fondos BLANCOS */
+.login-card,
+.form-card,
+.metodo-pago,
+.forma-pago,
+.plan-card {
+  color: #ffffff !important;
+}
+
+.login-card h2,
+.form-card h2,
+.metodo-pago h4,
+.forma-pago h4,
+.plan-card h3 {
+  color: #ffffff !important;
+}
+
+.login-card p,
+.form-card p,
+.metodo-pago p,
+.forma-pago p,
+.plan-card p {
+  color: #ffffff !important;
+}
+
+/* Inputs con fondo blanco deben tener texto oscuro */
+input,
+select,
+textarea {
+  color: #1a1a1a !important;
+  background-color: #ffffff !important;
+}
+
+input::placeholder,
+select::placeholder,
+textarea::placeholder {
+  color: #999999 !important;
+}
+
+/* Tablas y contenedores */
+.admin-nav .tab-btn {
+  color: #00d4ff;
+}
+
+.admin-nav .tab-btn.active {
+  background: #00bde3;
+  color: #041923 !important;
+}
+
+/* Historial flotante mejorado */
+.historial-modal {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: min(400px, 90%);
+  max-height: 80vh;
+  background: rgba(4, 25, 35, 0.98);
+  border: 2px solid #00d4ff;
+  border-bottom: none;
+  border-right: none;
+  border-radius: 15px 0 0 0;
+  padding: 20px;
+  overflow-y: auto;
+  z-index: 1000;
+  box-shadow: -5px -5px 30px rgba(0, 212, 255, 0.3);
+  animation: slideInHistorial 0.3s ease-in-out;
+}
+
+@keyframes slideInHistorial {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.historial-modal h3 {
+  color: #00d4ff;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #f5b942;
+  padding-bottom: 10px;
+}
+
+.historial-item {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid #00d4ff;
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 10px;
+  color: #e0f1f8;
+  font-size: 13px;
+}
+
+.historial-item strong {
+  color: #f5b942;
+}
+
+.historial-item.test-gratis {
+  border-left: 4px solid #00d4ff;
+}
+
+.historial-item.test-pago {
+  border-left: 4px solid #f5b942;
+}
+
+.btn-cerrar-historial {
+  background: none;
+  border: none;
+  color: #00d4ff;
+  font-size: 24px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  padding: 0;
+}
+
+.btn-cerrar-historial:hover {
+  color: #f5b942;
+  transform: scale(1.1);
+}
+
+/* Perfil de Gerente mejorado */
+.perfil-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+  margin-top: 20px;
+}
+
+.perfil-foto {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.08);
+  border: 2px dashed #00d4ff;
+  border-radius: 15px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.perfil-foto img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 3px solid #00d4ff;
+  object-fit: cover;
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+}
+
+#fotoPerfil {
+  display: none;
+}
+
+.perfil-datos {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid #00d4ff;
+  border-radius: 15px;
+  padding: 20px;
+}
+
+.perfil-dato label {
+  display: block;
+  color: #00d4ff;
+  font-weight: bold;
+  margin-bottom: 5px;
+  margin-top: 15px;
+}
+
+.perfil-dato input {
+  background: rgba(255, 255, 255, 0.9) !important;
+  color: #1a1a1a !important;
+}
+
+/* Modal de edición */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.modal.active {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modal-content {
+  background: #041923;
+  border: 2px solid #00d4ff;
+  border-radius: 15px;
+  padding: 30px;
+  width: min(500px, 90%);
+  box-shadow: 0 10px 40px rgba(0, 212, 255, 0.3);
+  animation: slideDown 0.3s ease-in-out;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.modal-content h3 {
+  color: #f5b942;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #00d4ff;
+  padding-bottom: 15px;
+}
+
+.modal-content input,
+.modal-content select {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  background: rgba(255, 255, 255, 0.9) !important;
+  color: #1a1a1a !important;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.modal-close {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  color: #00d4ff;
+  font-size: 28px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.modal-close:hover {
+  color: #f5b942;
+}
+
+/* Tests personalizados */
+.test-form-container {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid #00d4ff;
+  border-radius: 15px;
+  padding: 20px;
+  margin-bottom: 30px;
+}
+
+.test-form-container h3 {
+  color: #f5b942;
+  margin-bottom: 15px;
+}
+
+.test-meta {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px dashed #00d4ff;
+  border-radius: 8px;
+  padding: 15px;
+  margin: 15px 0;
+}
+
+.test-meta label {
+  display: block;
+  color: #00d4ff;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.question-item {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid #00bde3;
+  border-radius: 8px;
+  padding: 15px;
+  margin: 10px 0;
+}
+
+.test-question,
+.test-option {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  background: rgba(255, 255, 255, 0.9) !important;
+  color: #1a1a1a !important;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Página de gerente (será creada) */
+.gerente-panel {
+  width: min(1100px, 92%);
+  margin: 35px auto;
+}
+
+.gerente-tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 25px;
+  border-bottom: 2px solid #00d4ff;
+  padding-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.gerente-tab-btn {
+  padding: 10px 18px;
+  background: rgba(255, 255, 255, 0.08);
+  border: none;
+  border-radius: 8px;
+  color: #00d4ff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.gerente-tab-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.gerente-tab-btn.active {
+  background: #00bde3;
+  color: #041923;
+}
+
+.gerente-tab-content {
+  display: none;
+}
+
+.gerente-tab-content.active {
+  display: block;
+}
+
+/* Mejor contraste en paneles */
+.hidden {
+  display: none !important;
+}
+
+/* Animación para elementos flotantes mejorada */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+.floating,
+.floating-img {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Media queries para responsive */
+@media (max-width: 768px) {
+  .perfil-container {
+    grid-template-columns: 1fr;
+  }
+
+  .historial-modal {
+    width: 100%;
+    max-height: 60vh;
+    border-radius: 15px 15px 0 0;
+  }
+
+  .modal-content {
+    width: 95%;
+  }
+}
+
+/* Elemento para mostrar/ocultar con transición suave */
+.transition-element {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Mejora en la legibilidad de etiquetas */
+label {
+  font-weight: 600;
+  margin-bottom: 5px;
+  display: block;
+}
+
+/* Tablas responsivas */
+.table-responsive {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table th,
+table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #00d4ff;
+}
+
+table th {
+  background: rgba(0, 212, 255, 0.15);
+  color: #f5b942;
+  font-weight: bold;
+}
+
+table tr:hover {
+  background: rgba(0, 212, 255, 0.08);
+}
+
+/* Indicador de estado */
+.status-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.status-active {
+  background: rgba(0, 212, 255, 0.3);
+  color: #00d4ff;
+}
+
+.status-inactive {
+  background: rgba(255, 179, 71, 0.3);
+  color: #f5b942;
+}
+
+.status-completed {
+  background: rgba(76, 175, 80, 0.3);
+  color: #4caf50;
+}

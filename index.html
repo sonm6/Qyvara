@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>QYVARA</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <body>
+
+  <!-- SELECTOR DE IDIOMA -->
+  <div class="language-switch" style="position: fixed; top: 15px; right: 15px; z-index: 9999;">
+    <select id="idiomaSelector" onchange="cambiarIdiomaManual()"
+      style="
+        width: 80px;
+        height: 34px;
+        padding: 5px 8px;
+        margin: 0;
+        border-radius: 10px;
+        border: 1px solid #00d4ff;
+        background: #041923;
+        color: #00d4ff;
+        font-weight: bold;
+        font-size: 13px;
+        box-shadow: 0 0 10px rgba(0,212,255,0.35);
+      ">
+      <option value="es">ES</option>
+      <option value="qu">QU</option>
+    </select>
+  </div>
+  <!-- 🔼 FIN -->
+
+  <!-- TODO TU CONTENIDO -->
+
+  <div class="center-container">
+
+    <div class="card-hero">
+
+      <!-- LOGO -->
+      <img src="assets/logo.png" class="logo-pro">
+
+      <!-- TITULO -->
+      <h1>QYVARA</h1>
+
+      <!-- SLOGAN -->
+      <p id="sloganIndex" class="slogan">
+        Tu futuro profesional, con dirección exacta.
+      </p>
+
+      <!-- BOTONES -->
+      <div class="buttons">
+        <button id="btnLoginIndex" onclick="goLogin()">Iniciar sesión</button>
+        <button id="btnRegisterIndex" class="btn-outline" onclick="goRegister()">Crear cuenta</button>
+      </div>
+
+    </div>
+
+  </div>
+
+  <link rel="stylesheet" href="css/improvements.css">
+  <script src="js/database.js"></script>
+  <script src="js/app_new.js"></script>
+</body>
+</html>
